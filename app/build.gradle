@@ -1,0 +1,107 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'kotlin-parcelize'
+    id("androidx.navigation.safeargs.kotlin")
+}
+
+android {
+    namespace 'com.example.myapplication'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdk 26
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        buildConfig = true // Explicitly enable BuildConfig
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation "androidx.core:core-ktx:$android_core_ktx"
+    implementation "androidx.appcompat:appcompat:$app_compat"
+    implementation "androidx.annotation:annotation:$android_x"
+    implementation "androidx.recyclerview:recyclerview:$android_x"
+    implementation "com.google.android.material:material:$material_design"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayout"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$android_x_java"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$android_liftcycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$viewmodel_ext"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel_ext"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$viewmodel_ext"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$viewmodel_ext"
+    implementation "androidx.fragment:fragment-ktx:$fragment_ktx"
+    implementation project(":core")
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav"
+
+    //Live Data
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$live_data"
+
+    //Hilt
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+
+    implementation "com.squareup.okhttp3:okhttp:$okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.google.code.gson:gson:$gson"
+
+    //Coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutine"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutine"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$kotlin_coroutine"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    testImplementation "com.squareup.assertj:assertj-android:$assertion"
+    testImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_coroutine_test"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiter"
+    testImplementation "com.nhaarman:mockito-kotlin:$mockito_kotlin"
+    testImplementation "org.amshove.kluent:kluent:$kluent"
+
+    testImplementation "io.mockk:mockk:$mockk"
+    testImplementation "androidx.arch.core:core-testing:$view_model_test"
+    testImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
+}

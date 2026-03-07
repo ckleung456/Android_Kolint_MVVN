@@ -1,0 +1,1 @@
+export PATH=$PATH:/Users/ckleung/Library/Android/sdk/platform-tools/

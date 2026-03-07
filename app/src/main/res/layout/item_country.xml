@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_country_region"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:padding="@dimen/material_padding"
+        android:textColor="@color/black"
+        android:textSize="@dimen/material_text_size"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toStartOf="@+id/txt_country_code"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        tools:text="United States of America, NA" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_country_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:padding="@dimen/material_padding"
+        android:textColor="@color/black"
+        android:textSize="@dimen/material_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintWidth_max="wrap"
+        app:layout_constraintWidth_percent="0.5"
+        tools:text="US" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_country_capital"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:padding="@dimen/material_padding"
+        android:textColor="@color/black"
+        android:textSize="@dimen/material_text_size"
+        app:layout_constraintEnd_toEndOf="@id/txt_country_code"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@id/txt_country_region"
+        app:layout_constraintTop_toBottomOf="@id/txt_country_region"
+        app:layout_constraintVertical_bias="0"
+        tools:text="Washington, D.C." />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="country_regin_format">%1$s , %2$s</string>
+    <string name="error_network">Please check your network connectivity.</string>
+    <string name="error_server">Sorry, we are facing some issues. Please try again later.</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="currency_format">Currency name: %1$s, code: %2$s, symbol: %3$s</string>
+    <string name="language_format">Official language: %1$s, code: %2$s</string>
+    <string name="country_name">Name: %1$s</string>
+    <string name="country_region">Region: %1$s</string>
+    <string name="country_capital">Capital: %1$s</string>
+    <string name="country_code">Code: %1$s</string>
+</resources>
