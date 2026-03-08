@@ -10,4 +10,25 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!-- Primary colors -->
+    <color name="purple_300">#FFBB86FC</color>
+    <color name="purple_100">#FFE1BEE7</color>
+    <color name="purple_50">#FFF3E5F5</color>
+
+    <!-- Gray scale -->
+    <color name="gray_900">#FF212121</color>
+    <color name="gray_800">#FF424242</color>
+    <color name="gray_600">#FF757575</color>
+    <color name="gray_400">#FFBDBDBD</color>
+    <color name="gray_200">#FFEEEEEE</color>
+
+    <!-- Status colors -->
+    <color name="red_500">#FFF44336</color>
+    <color name="red_100">#FFFFCDD2</color>
+    <color name="green_500">#FF4CAF50</color>
+    <color name="blue_500">#FF2196F3</color>
+
+    <!-- Ripple color -->
+    <color name="ripple_color">#1F000000</color>
 </resources>

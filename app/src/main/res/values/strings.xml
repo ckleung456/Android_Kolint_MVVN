@@ -10,4 +10,7 @@
     <string name="country_region">Region: %1$s</string>
     <string name="country_capital">Capital: %1$s</string>
     <string name="country_code">Code: %1$s</string>
+
+    <string name="menu_title_countries">Counties</string>
+    <string name="menu_title_setting">Settings</string>
 </resources>

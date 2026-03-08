@@ -1,19 +1,14 @@
 package com.example.myapplication.ui.activity
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.core.model.countries.Country
-import com.example.core.utils.observeEvent
+import androidx.navigation.ui.setupWithNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.ui.fragment.CountriesFragment
-import com.example.myapplication.ui.fragment.CountryFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,12 +32,15 @@ class MainActivity : AppCompatActivity() {
             navController = navController,
             configuration = AppBarConfiguration(
                 topLevelDestinationIds = setOf(
-                    R.id.countriesFragment
+                    R.id.countriesFragment,
+                    R.id.settingsFragment
                 )
             )
         )
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        binding.bottomBarLayout.setupWithNavController(navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
