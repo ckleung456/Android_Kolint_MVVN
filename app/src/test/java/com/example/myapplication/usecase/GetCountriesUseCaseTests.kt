@@ -4,7 +4,7 @@ import com.example.core.model.countries.Country
 import com.example.core.repository.network.RetrofitException
 import com.example.core.usecase.UseCaseOutputWithStatus
 import com.example.myapplication.CoroutineTestRule
-import com.example.myapplication.repository.CountryInteractor
+import com.example.myapplication.repository.CountryRepository
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
@@ -23,7 +23,7 @@ class GetCountriesUseCaseTests {
     val coroutineRule = CoroutineTestRule()
 
     @MockK
-    lateinit var interactorMock: CountryInteractor
+    lateinit var interactorMock: CountryRepository
 
     @MockK
     lateinit var onResultFnMock: (UseCaseOutputWithStatus<List<Country>>) -> Unit

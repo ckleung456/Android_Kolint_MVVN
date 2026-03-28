@@ -1,7 +1,7 @@
 package com.example.myapplication.ui.utils
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.myapplication.model.CountryItem
+import com.example.myapplication.model.domain.CountryItem
 
 class CountryDiffCallback(
     val oldList: List<CountryItem>,

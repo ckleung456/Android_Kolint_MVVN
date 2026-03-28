@@ -9,7 +9,7 @@ import com.example.core.repository.network.RetrofitException
 import com.example.core.usecase.UseCaseOutputWithStatus
 import com.example.myapplication.CoroutineTestRule
 import com.example.myapplication.R
-import com.example.myapplication.model.CountryWitPosition
+import com.example.myapplication.model.domain.CountryWitPosition
 import com.example.myapplication.usecase.GetCountriesUseCase
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery

@@ -2,9 +2,9 @@ package com.example.myapplication.ui.viewholder
 
 import android.view.Gravity
 import com.example.myapplication.databinding.ItemTextBinding
-import com.example.myapplication.model.CountryItem
+import com.example.myapplication.model.domain.CountryItem
 
-class CountryLetterHeaderViewHolder constructor(
+class CountryLetterHeaderViewHolder(
     private val binding: ItemTextBinding
 ): CountryItemViewHolder(itemView = binding.root) {
     init {

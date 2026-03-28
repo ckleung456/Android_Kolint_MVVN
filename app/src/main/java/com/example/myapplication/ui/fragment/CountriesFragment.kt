@@ -8,20 +8,23 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.OnScrollListener
 import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE
-import com.example.core.utils.observe
-import com.example.core.utils.observeEvent
 import com.example.core.utils.setGone
 import com.example.core.utils.setVisible
 import com.example.myapplication.databinding.FragmentCountriesBinding
+import com.example.myapplication.model.domain.CountryUiState
 import com.example.myapplication.ui.adapter.CountryAdapter
 import com.example.myapplication.viewmodel.CountriesViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import java.lang.ref.WeakReference
 
 @AndroidEntryPoint
@@ -106,7 +109,16 @@ class CountriesFragment : Fragment() {
                 true
             }
 
-            setupObserver()
+            lifecycleScope.launch {
+                viewLifecycleOwner.let {
+                    viewModel.uiState.flowWithLifecycle(
+                        lifecycle = viewLifecycleOwner.lifecycle,
+                        minActiveState = androidx.lifecycle.Lifecycle.State.STARTED
+                    ).collectLatest {
+                        handleUiState(uiState = it)
+                    }
+                }
+            }
         }
     }
 
@@ -124,35 +136,32 @@ class CountriesFragment : Fragment() {
         super.onDestroyView()
     }
 
-    private fun setupObserver() {
+    private fun handleUiState(uiState: CountryUiState) {
         binding?.apply {
-            viewModel.countriesWithPosition.observe(lifecycleOwner = viewLifecycleOwner) { countriesWithPosition ->
-                val adapter = rlCountries.adapter
-                if (adapter is CountryAdapter) {
-                    adapter.items = countriesWithPosition.countries
-                }
-                lastPosition = countriesWithPosition.position
-                val weakRefRecyclerView = WeakReference(rlCountries)
-                rlCountries.postDelayed({
-                    weakRefRecyclerView.get()?.scrollToPosition(countriesWithPosition.position)
-                }, SCROLL_ANIMATION)
+            if (uiState == CountryUiState.Loading) {
+                pbLoading.setVisible()
+            } else {
+                pbLoading.setGone()
             }
-
-            viewModel.inProgress.observeEvent(lifecycleOwner = viewLifecycleOwner) { inProgress ->
-                if (inProgress) {
-                    pbLoading.setVisible()
-                } else {
-                    pbLoading.setGone()
-                }
-            }
-
-            viewModel.onError.observeEvent(lifecycleOwner = viewLifecycleOwner) { errorMessageId ->
-                activity?.let {
+            when (uiState) {
+                is CountryUiState.Failure -> activity?.let {
                     AlertDialog.Builder(it)
-                        .setMessage(errorMessageId)
+                        .setMessage(uiState.errorResId)
                         .create()
                         .show()
                 }
+                is CountryUiState.Success -> {
+                    val adapter = rlCountries.adapter
+                    if (adapter is CountryAdapter) {
+                        adapter.items = uiState.countries
+                    }
+                    lastPosition = uiState.position
+                    val weakRefRecyclerView = WeakReference(rlCountries)
+                    rlCountries.postDelayed({
+                        weakRefRecyclerView.get()?.scrollToPosition(uiState.position)
+                    }, SCROLL_ANIMATION)
+                }
+                else -> {}
             }
         }
     }

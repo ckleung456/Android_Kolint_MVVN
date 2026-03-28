@@ -7,7 +7,7 @@ import androidx.lifecycle.SavedStateHandle
 import com.example.core.model.countries.Country
 import com.example.core.model.countries.CountryCurrency
 import com.example.core.model.countries.CountryLanguage
-import com.example.myapplication.model.CountryInfoItem
+import com.example.myapplication.model.domain.CountryInfoItem
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK

@@ -1,6 +1,7 @@
-package com.example.myapplication.model
+package com.example.myapplication.model.domain
 
 import android.os.Parcelable
+import com.example.core.model.countries.Country
 import com.example.myapplication.R
 import kotlinx.parcelize.Parcelize
 
@@ -18,7 +19,7 @@ sealed class CountryItem(val type: CountriesType): Parcelable {
 
     @Parcelize
     data class CountryView(
-        val country: com.example.core.model.countries.Country
+        val country: Country
     ): CountryItem(CountriesType.COUNTRY)
 }
 

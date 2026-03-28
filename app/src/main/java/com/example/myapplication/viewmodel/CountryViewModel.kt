@@ -5,7 +5,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import com.example.core.model.countries.Country
-import com.example.myapplication.model.CountryInfoItem
+import com.example.myapplication.model.domain.CountryInfoItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

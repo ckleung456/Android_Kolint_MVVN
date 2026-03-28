@@ -3,9 +3,9 @@ package com.example.myapplication.ui.viewholder
 import android.content.Context
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ItemTextBinding
-import com.example.myapplication.model.CountryInfoItem
+import com.example.myapplication.model.domain.CountryInfoItem
 
-class CountryInfoDetailViewHolder constructor(
+class CountryInfoDetailViewHolder(
     private val binding: ItemTextBinding
 ) : CountryInfoViewHolder(itemView = binding.root) {
     companion object {

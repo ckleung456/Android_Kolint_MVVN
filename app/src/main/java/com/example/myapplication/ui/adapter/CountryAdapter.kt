@@ -11,7 +11,7 @@ import com.example.core.model.countries.Country
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ItemCountryBinding
 import com.example.myapplication.databinding.ItemTextBinding
-import com.example.myapplication.model.CountryItem
+import com.example.myapplication.model.domain.CountryItem
 import com.example.myapplication.ui.utils.CountryDiffCallback
 import com.example.myapplication.ui.viewholder.CountryItemViewHolder
 import com.example.myapplication.ui.viewholder.CountryLetterHeaderViewHolder

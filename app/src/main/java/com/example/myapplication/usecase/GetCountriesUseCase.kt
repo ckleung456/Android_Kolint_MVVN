@@ -1,8 +1,8 @@
 package com.example.myapplication.usecase
 
 import com.example.core.usecase.FlowUseCase
-import com.example.myapplication.model.CountryItem
-import com.example.myapplication.repository.CountryInteractor
+import com.example.myapplication.model.domain.CountryItem
+import com.example.myapplication.repository.CountryRepository
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @ViewModelScoped
 class GetCountriesUseCase @Inject constructor(
-    private val interactor: CountryInteractor
+    private val interactor: CountryRepository
 ) : FlowUseCase<Unit, List<CountryItem>>() {
     override suspend fun getFlow(input: Unit): Flow<List<CountryItem>> = interactor
         .getCountries()

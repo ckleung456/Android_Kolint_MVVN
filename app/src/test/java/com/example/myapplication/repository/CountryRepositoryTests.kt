@@ -18,7 +18,7 @@ import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class CountryInteractorTests {
+class CountryRepositoryTests {
     @MockK
     lateinit var apisMock: TestAPIs
 
@@ -28,12 +28,12 @@ class CountryInteractorTests {
     @MockK
     lateinit var retrofitExceptionMock: RetrofitException
 
-    private var underTests: CountryInteractor? = null
+    private var underTests: CountryRepository? = null
 
     @Before
     fun `set up`() {
         MockKAnnotations.init(this)
-        underTests = CountryInteractor(
+        underTests = CountryRepository(
             apis = apisMock
         )
     }

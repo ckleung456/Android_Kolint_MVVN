@@ -2,7 +2,7 @@ package com.example.myapplication.ui.viewholder
 
 import android.content.Context
 import com.example.core.model.countries.Country
-import com.example.myapplication.model.CountryItem
+import com.example.myapplication.model.domain.CountryItem
 import com.example.core.utils.setOnThrottleClickListener
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ItemCountryBinding

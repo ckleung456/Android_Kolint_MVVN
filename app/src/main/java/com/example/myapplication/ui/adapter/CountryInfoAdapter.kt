@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ItemImageBinding
 import com.example.myapplication.databinding.ItemTextBinding
-import com.example.myapplication.model.CountryInfoItem
+import com.example.myapplication.model.domain.CountryInfoItem
 import com.example.myapplication.ui.utils.CountryInfoDiffCallback
 import com.example.myapplication.ui.viewholder.CountryInfoDetailViewHolder
 import com.example.myapplication.ui.viewholder.CountryInfoFlagViewHolder

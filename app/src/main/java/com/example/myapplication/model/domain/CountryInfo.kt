@@ -1,4 +1,4 @@
-package com.example.myapplication.model
+package com.example.myapplication.model.domain
 
 import android.os.Parcelable
 import com.example.core.model.countries.CountryCurrency
