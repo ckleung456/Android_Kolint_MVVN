@@ -3,10 +3,12 @@
 
     <item
         android:id="@+id/countries_nav_graph"
-        android:title="@string/menu_title_countries" />
+        android:title="@string/menu_title_countries"
+        android:icon="@null" />
 
     <item
         android:id="@+id/settings_nav_graph"
-        android:title="@string/menu_title_setting" />
+        android:title="@string/menu_title_setting"
+        android:icon="@null"/>
 
 </menu>

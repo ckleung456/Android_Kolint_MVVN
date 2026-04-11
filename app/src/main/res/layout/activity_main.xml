@@ -42,6 +42,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="1"
+        app:itemPaddingTop="0dp"
+        app:itemPaddingBottom="0dp"
+        app:itemIconSize="0dp"
         app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

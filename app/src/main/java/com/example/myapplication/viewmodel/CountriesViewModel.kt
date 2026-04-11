@@ -58,7 +58,8 @@ class CountriesViewModel @Inject constructor(
             if (isHardRefresh || countries.isNullOrEmpty()) {
                 launch(Dispatchers.IO) {
                     getCountriesUseCase
-                        .invoke(input = Unit) { state ->
+                        .invoke(input = Unit)
+                        .collect { state ->
                             launch(Dispatchers.Main) {
                                 when (state) {
                                     is UseCaseOutputWithStatus.Progress -> _uiState.send(CountryUiState.Loading)
